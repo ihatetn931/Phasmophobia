@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityModManagerNet;
 using HarmonyLib;
 using System.Reflection;
 using UnityEngine.UI;
-using UnityEngine.XR;
+
 namespace GhostMod
 {
     static class Main
