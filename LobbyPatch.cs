@@ -19,18 +19,8 @@ namespace GhostMod
             return true;
         }
     }
-    /*[HarmonyPatch(typeof(Room))]
-    [HarmonyPatch("CreateRoom")]
-    static class LobbyManager_Patch
-    {
-        public static bool Prefix(Room __instance)
-        {
-            __instance.
 
-            Debug.Log($"__result: {__result}");
-            return true;
-        }
-    }*/
+
     [HarmonyPatch(typeof(HeartRateData))]
     [HarmonyPatch("Update")]
     internal class HeartRateData_Update_Patch
@@ -53,25 +43,21 @@ namespace GhostMod
                 {
                     foreach (var images in image)
                     {
-                        //Debug.Log($"p1Image: {images.rectTransform.name.Contains("P1HeartImage")}");
                         if (test.rectTransform.name.Contains("P1HRValueText") && (images.rectTransform.name.Contains("P1HeartImage")))
                         {
                             if (p1Sanity > 75)
                             {
                                 test.color = new Color(1,1,1,1);
-                                //test.material.color = Color.blue;
                                 images.color = new Color(0,1,0, 0.1f);
                             }
                             else if (p1Sanity < 75)
                             {
                                 test.color = new Color(1, 1, 1, 1);
-                                //test.material.color = Color.blue;
                                 images.color = new Color(1, 0.92f, 0.016f, 0.1f);
                             }
                             else if (p1Sanity < 25)
                             {
                                 test.color = new Color(1, 1, 1, 1);
-                                //test.material.color = Color.blue;
                                 images.color = new Color(1, 0, 0, 0.1f);
                             }
                             GetPlayer1Insanity(test.text.Replace("%", ""));
@@ -81,19 +67,16 @@ namespace GhostMod
                             if (p2Sanity > 75)
                             {
                                 test.color = new Color(1, 1, 1, 1);
-                                //test.material.color = Color.blue;
                                 images.color = new Color(0, 1, 0, 0.10f);
                             }
                             else if (p2Sanity < 75)
                             {
                                 test.color = new Color(1, 1, 1, 1);
-                                //test.material.color = Color.blue;
                                 images.color = new Color(1, 0.92f, 0.016f, 0.10f);
                             }
                             else if (p2Sanity < 25)
                             {
                                 test.color = new Color(1, 1, 1, 1);
-                                //test.material.color = Color.blue;
                                 images.color = new Color(1, 0, 0, 0.10f);
                             }
                             GetPlayer2Insanity(test.text.Replace("%", ""));
@@ -197,26 +180,15 @@ namespace GhostMod
                 }
             }
         }
-        
     }
+
+
     [HarmonyPatch(typeof(LobbyManager))]
     [HarmonyPatch("CreateServer")]
     internal class LobbyManager_CreateServer_Patch
     {
         public static bool Prefix(bool isPrivate)
         {
-            //var test = new LobbyManager();
-           /* if (XRDevice.isPresent)
-            {
-                Debug.Log("[GhostMod]3");
-                test.SaveVRPlayerPositions();
-                //LobbyManager.SaveVRPlayerPositions();
-            }
-            else
-            {
-                Debug.Log("[GhostMod]3else");
-                test.SavePCPlayerPositions();
-            }*/
             PlayerPrefs.SetInt("isPublicServer", isPrivate ? 0 : 1);
             RoomOptions roomOptions = new RoomOptions
             {
@@ -235,6 +207,8 @@ namespace GhostMod
             return false;
         }
     }
+
+
     [HarmonyPatch(typeof(InventoryItem))]
     [HarmonyPatch("Awake")]
     internal class InventoryItem_Awake_Patch
@@ -251,29 +225,14 @@ namespace GhostMod
             return false;
         }
     }
-    /*[HarmonyPatch(typeof(ItemSpawner))]
-    [HarmonyPatch("SpawnItems")]
-    internal class ItemSpawner_SpawnItems_Patch
-    {
-        
-        public static bool Prefix(ItemSpawner __instance)
-        {
-            var itemSpawner = __instance.transform.GetComponentsInChildren<ItemSpawner>();
-            foreach(var shiz in itemSpawner)
-            {
-                Debug.Log($"[GhostMod] lighterSpawners: {shiz.lighterSpawners}");
-            }
-            return true;
-        }
-    }*/
-    
+
+
     [HarmonyPatch(typeof(InventoryManager))]
     [HarmonyPatch("AddButton")]
     internal class InventoryManager_AddButton_Patch
     {
         public static bool Prefix(InventoryItem item)
         {
-            Debug.Log($"MaxAmount: {item.maxAmount}");
             item.maxAmount = 8;
             return true;
         }
