@@ -69,7 +69,7 @@ namespace GhostMod
                                 test.color = new Color(1, 1, 1, 1);
                                 images.color = new Color(0, 1, 0, 0.10f);
                             }
-                            else if (p2Sanity < 75)
+                            else if (p2Sanity < 75 && p2Sanity > 25)
                             {
                                 test.color = new Color(1, 1, 1, 1);
                                 images.color = new Color(1, 0.92f, 0.016f, 0.10f);
@@ -88,7 +88,7 @@ namespace GhostMod
                                 test.color = new Color(1, 1, 1, 1);
                                 images.color = new Color(0, 1, 0, 0.10f);
                             }
-                            else if (p3Sanity < 75)
+                            else if (p3Sanity < 75 && p3Sanity > 25)
                             {
                                 test.color = new Color(1, 1, 1, 1);
                                 images.color = new Color(1, 0.92f, 0.016f, 0.10f);
@@ -107,7 +107,7 @@ namespace GhostMod
                                 test.color = new Color(1, 1, 1, 1);
                                 images.color = new Color(0, 1, 0, 0.10f);
                             }
-                            else if (p4Sanity < 75)
+                            else if (p4Sanity < 75 && p4Sanity > 25)
                             {
                                 test.color = new Color(1, 1, 1, 1);
                                 images.color = new Color(1, 0.92f, 0.016f, 0.10f);
