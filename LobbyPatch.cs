@@ -50,12 +50,12 @@ namespace GhostMod
                                 test.color = new Color(1,1,1,1);
                                 images.color = new Color(0,1,0, 0.1f);
                             }
-                            else if (p1Sanity < 75)
+                            else if (p1Sanity < 75 && p1Sanity > 25)
                             {
                                 test.color = new Color(1, 1, 1, 1);
                                 images.color = new Color(1, 0.92f, 0.016f, 0.1f);
                             }
-                            else if (p1Sanity < 25)
+                            else if (p1Sanity < 25 )
                             {
                                 test.color = new Color(1, 1, 1, 1);
                                 images.color = new Color(1, 0, 0, 0.1f);
@@ -195,7 +195,7 @@ namespace GhostMod
                 IsOpen = true,
                 IsVisible = !isPrivate,
                 MaxPlayers = 8,
-                PlayerTtl = 2000
+                PlayerTtl = 5000
             };
             Debug.Log($"isPrivate: {isPrivate}");
             if (!isPrivate)
