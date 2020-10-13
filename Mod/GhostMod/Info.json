@@ -1,8 +1,0 @@
-{
-  "Id": "GhostMod",
-  "DisplayName": "Ghost Mod",
-  "Author": "ihatetn931",
-  "Version": "1.0.0",
-  "AssemblyName": "GhostMod.dll",
-  "EntryMethod": "GhostMod.Main.Load"
-}
