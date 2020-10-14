@@ -12,9 +12,12 @@ namespace EightPlayers
         static bool Load(UnityModManager.ModEntry modEntry)
         {
             var harmony = new Harmony(modEntry.Info.Id);
-            Debug.Log($"Id:{modEntry.Info.Id}");
+           // Debug.Log($"[EightPlayers] {modEntry.Info.Id}");
+           // Debug.Log($"[EightPlayers] {modEntry.Info.DisplayName}");
+            Debug.Log("[EightPlayers] Patching.....");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
             mod = modEntry;
+            Debug.Log("[EightPlayers] Patch Success");
             return true;
         }
     }
@@ -56,10 +59,8 @@ namespace EightPlayers
     [HarmonyPatch("JoinServer")]
     internal class LobbyManager_JoinServer_Patch
     {
-
         public static bool Prefix(RoomInfo info)
         {
-
             if (!info.IsOpen || info.PlayerCount >= (int)info.MaxPlayers || !info.IsVisible)
             {
                 // this.RefreshList();
@@ -79,17 +80,17 @@ namespace EightPlayers
         }
     }
 
-    [HarmonyPatch(typeof(ServerListItem))]
-    [HarmonyPatch("Awake")]
-    internal class LobbyManager_Update_Patch
+    /*[HarmonyPatch(typeof(PasswordManager))]
+    [HarmonyPatch("OnEnable")]
+    internal class PasswordManager_Update_Patch
     {
-        public static bool Prefix(ServerListItem __instance)
+        public static bool Prefix(PasswordManager __instance)
         {
             //var ghost = __instance.GetComponentInChildren<LobbyManager>();
             Debug.Log($"[GhostMod] instance {__instance.lobbyManager}");
             return true;
         }
-    }
+    }*/
 
     [HarmonyPatch(typeof(InventoryItem))]
     [HarmonyPatch("Awake")]

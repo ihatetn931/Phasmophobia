@@ -19,3 +19,4 @@ E:\phasmophobia\Phasmophobia\SanityDisplay\obj\Debug\SanityDisplay.csproj.CoreCo
 E:\phasmophobia\Phasmophobia\SanityDisplay\obj\Debug\SanityDisplay.csproj.CopyComplete
 E:\phasmophobia\Phasmophobia\SanityDisplay\obj\Debug\SanityDisplay.dll
 E:\phasmophobia\Phasmophobia\SanityDisplay\obj\Debug\SanityDisplay.pdb
+E:\phasmophobia\Phasmophobia\SanityDisplay\obj\Debug\SanityDisplay.csprojAssemblyReference.cache

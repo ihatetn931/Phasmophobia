@@ -15,9 +15,12 @@ namespace SanityDisplay
         static bool Load(UnityModManager.ModEntry modEntry)
         {
             var harmony = new Harmony(modEntry.Info.Id);
-            Debug.Log($"Id:{modEntry.Info.Id}");
+            Debug.Log($"[SanityDisplay] {modEntry.Info.Id}");
+            Debug.Log($"[SanityDisplay] {modEntry.Info.DisplayName}");
+            Debug.Log("[SanityDisplay] Patching.....");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
             mod = modEntry;
+            Debug.Log("[SanityDisplay] Patch Success");
             return true;
         }
     }
@@ -123,7 +126,6 @@ namespace SanityDisplay
                         }
                         if (test.rectTransform.name.Contains("TitleText"))
                         {
-
                             averageSanity = p1Sanity + p2Sanity + p3Sanity + p4Sanity;
                             test.color = new Color(1, 1, 1, 1);
                             test.fontSize = 10;
